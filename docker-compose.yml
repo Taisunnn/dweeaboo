@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5000:80'
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'anime_db'
+      MYSQL_USER: 'tyson'
+      MYSQL_PASSWORD: 'tyson'
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - "./database/initialize.sql:/docker-entrypoint-initdb.d/1.sql"
+    ports:
+      - '3308:3306'
+  airflow:
+    image: python:latest
+    ports:
+      - '8080:8080'
