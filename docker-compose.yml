@@ -20,6 +20,8 @@ services:
     ports:
       - '3308:3306'
   airflow:
-    image: python:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
     ports:
       - '8080:8080'
