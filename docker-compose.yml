@@ -23,5 +23,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.airflow
+    volumes:
+      - "./airflow/dags"
     ports:
       - '8080:8080'

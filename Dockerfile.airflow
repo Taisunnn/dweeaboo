@@ -3,8 +3,7 @@ FROM python:3.9
 #spin up airflow
 
 WORKDIR /code
-COPY ./airflow dags
 RUN pip install apache-airflow
-RUN export AIRFLOW_HOME=/code
-
+RUN ENV AIRFLOW_HOME=/code
 CMD ["airflow", "standalone"]
+RUN export AIRFLOW_HOME=~/code
