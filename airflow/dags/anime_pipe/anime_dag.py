@@ -1,5 +1,3 @@
-from utilities import anime_pipeline
-
 """
 # Anime Pipeline
 This pipeline will load anime data into the database.
@@ -14,7 +12,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 # Custom function
-from utilities import anime_pipeline
+from anime_pipe.utilities import anime_pipeline
 
 
 default_args = {
@@ -36,4 +34,7 @@ with DAG(
 
     grab_data = PythonOperator(task_id="grab_data", 
                                 python_callable=anime_pipeline, 
+                                op_kwargs= {
+                                    "anime_list" : ['Naruto', 'Bleach']
+                                }
                                 )

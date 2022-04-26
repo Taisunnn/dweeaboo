@@ -2,8 +2,9 @@ FROM python:3.9
 
 #spin up airflow
 
-WORKDIR /code
+WORKDIR /root
+COPY ./requirements_airflow.txt requirements_airflow.txt
+RUN pip install -r requirements_airflow.txt
 RUN pip install apache-airflow
-RUN ENV AIRFLOW_HOME=/code
 CMD ["airflow", "standalone"]
-RUN export AIRFLOW_HOME=~/code
+

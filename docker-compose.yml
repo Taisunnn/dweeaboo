@@ -14,22 +14,29 @@ services:
       - "./database/initialize.sql:/docker-entrypoint-initdb.d/1.sql"
     ports:
       - '3308:3306'
+
   app:
     build:
       context: .
       dockerfile: Dockerfile.app
     ports:
-      - '80:80'
+      - '5000:80'
     environment:
       MYSQL_HOST: db
       MYSQL_DATABASE: 'anime_db'
       MYSQL_USER: 'tyson'
       MYSQL_PASSWORD: 'tyson'
+
   airflow:
     build:
       context: .
       dockerfile: Dockerfile.airflow
     volumes:
-      - ./airflow:/airflow/dags
+      - "./airflow/dags:/root/airflow/dags"
     ports:
       - '8080:8080'
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: 'anime_db'
+      MYSQL_USER: 'tyson'
+      MYSQL_PASSWORD: 'tyson'
