@@ -16,10 +16,10 @@ from anime_pipe.utilities import anime_pipeline
 
 
 default_args = {
-    'owner':'Tyson',
-    'depends_on_past':False,
-    'retries':1,
-    'retry_delay':timedelta(minutes=1)
+    "owner": "Tyson",
+    "depends_on_past": False,
+    "retries": 1,
+    "retry_delay": timedelta(minutes=1),
 }
 
 with DAG(
@@ -28,13 +28,11 @@ with DAG(
     schedule_interval=timedelta(days=1),
     start_date=datetime(2021, 12, 10),
     catchup=False,
-    tags=["Animes"]
-
+    tags=["Animes"],
 ) as dag:
 
-    grab_data = PythonOperator(task_id="grab_data", 
-                                python_callable=anime_pipeline, 
-                                op_kwargs= {
-                                    "anime_list" : ['Naruto', 'Bleach']
-                                }
-                                )
+    grab_data = PythonOperator(
+        task_id="grab_data",
+        python_callable=anime_pipeline,
+        op_kwargs={"anime_list": ["Naruto", "Bleach"]},
+    )
