@@ -12,3 +12,5 @@ uvicorn==0.17.6
 pymysql
 sqlalchemy
 pandas
+mysql-connector-python
+cryptography

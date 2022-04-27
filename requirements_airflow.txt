@@ -1,3 +1,8 @@
+apache-airflow
 pandas
-SQLAlchemy
+sqlalchemy>=1.4.0
 requests
+apache-airflow-providers-mysql
+mysql-connector-python
+pymysql
+markupsafe==2.0.1
