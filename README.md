@@ -2,7 +2,7 @@
 Hosting a website for weaboos and dweebs
 # Getting Started
 1. clone the git repository
-2. cd into the repository
+2. cd <repo>
 3. docker-compose up
 # Technologies used
 * Docker
@@ -11,4 +11,4 @@ Hosting a website for weaboos and dweebs
 * MySQL
 * Pandas / SQLAlchemy (Data Manipulation)
 * Requests (API's)
-
+* EC2 & S3 (AWS)

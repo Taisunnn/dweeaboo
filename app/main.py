@@ -7,7 +7,7 @@ import pandas as pd
 database = os.environ["MYSQL_DATABASE"]
 password = os.environ["MYSQL_ROOT_PASSWORD"]
 user = os.environ["MYSQL_USER"]
-host = os.environ["HOSTNAME"]
+host = os.environ["MYSQL_HOST"]
 
 sqlEngine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{database}")
 dbConnection = sqlEngine.connect()
@@ -22,5 +22,5 @@ def index():
 
 @app.get("/anime/{name}")
 def get_user(name: str):
-    query = pd.read_sql(f"SELECT * FROM animes WHERE (title = '{name}'", dbConnection)
+    query = pd.read_sql(f"SELECT * FROM animes WHERE (title = '{name}')", dbConnection)
     return query

@@ -11,6 +11,6 @@ PRIMARY KEY(anime_id)
 );
 
 
-" initialize database script -> use it to create database first; defined in docker-compose file"
+"initialize database script -> use it to create database first; defined in docker-compose file"
 volume:
     - "./database/initialize.sql:/docker-entrypoint-initdb.d/1.sql"

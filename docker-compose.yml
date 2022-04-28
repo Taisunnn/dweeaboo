@@ -42,7 +42,7 @@ services:
     volumes:
       - "./airflow:/root/airflow/"
     environment:
-      MYSQL_HOST: db_host
+      MYSQL_HOST: db
       MYSQL_DATABASE: anime_db
       MYSQL_USER: tyson
       MYSQL_PASSWORD: root
