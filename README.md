@@ -1,9 +1,5 @@
 # Dweeaboo
-Hosting a website for weaboos and dweebs
-# Getting Started
-1. clone the git repository
-2. cd <repo>
-3. docker-compose up
+Hosting a website for weaboos and dweebs on an EC2 instance using FastAPI. Populating a MySQL database with https://jikan.moe/ API through AirFlow. 
 # Technologies used
 * Docker
 * Airflow (Scheduler)
