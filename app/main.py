@@ -1,6 +1,8 @@
 import os
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 from sqlalchemy import create_engine
 import pandas as pd
 
@@ -14,13 +16,17 @@ dbConnection = sqlEngine.connect()
 
 app = FastAPI()
 
+templates = Jinja2Templates(directory="app")
 
-@app.get("/")
-def index():
-    return {"Welcome": "To Tyson's anime website! It's a work in progress.."}
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request):
+    context = {'request': request}
+    return templates.TemplateResponse("home.html", context)
 
 
-@app.get("/anime/{name}")
-def get_user(name: str):
-    query = pd.read_sql(f"SELECT * FROM animes WHERE (title = '{name}')", dbConnection)
-    return query
+@app.get("/anime/{name}", response_class=HTMLResponse)
+def get_anime(request: Request, name: str):
+    query = pd.read_sql(f"SELECT * FROM animes WHERE (title = '{name.lower()}')", dbConnection)
+    query = query.to_dict('records')[0]
+    context = {'request' : request, 'query' : query}
+    return templates.TemplateResponse("anime.html", context)
