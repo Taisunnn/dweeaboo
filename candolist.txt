@@ -1,0 +1,4 @@
+Add logic to app; display pictures for certain animes and my own description on the anime
+Add more information about the anime; synopsis, episodes and etc.
+
+Prettify the webpage; add search bar, visuals. HTMX or CSS
