@@ -67,7 +67,7 @@ def get_anime(request: Request, query:Optional[str]):
     if results.count() == 0:
         return templates.TemplateResponse("invalid.html", context)  
     else:
-        return templates.TemplateResponse("anime.html", context)   
+        return templates.TemplateResponse("anime.html", {'request': request, 'results': results[0]})   
 
 @app.get("/about", response_class=HTMLResponse)
 def index(request: Request):
