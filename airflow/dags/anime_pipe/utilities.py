@@ -18,7 +18,7 @@ def extract_animes(anime_list: list) -> list:
     return combined
 
 def transform_animes(combined: list) -> pd.DataFrame:
-    COLUMNS = ["title", "score"]
+    COLUMNS = ["title", "score", "synopsis", "episodes", "rated"]
     anime_df = pd.DataFrame(combined)
     anime_df = anime_df[COLUMNS]
     return anime_df

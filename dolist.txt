@@ -1,0 +1,23 @@
+Add logic to app; display pictures for certain animes and my own description on the anime
+Add more information about the anime; synopsis, episodes and etc.
+
+Prettify the webpage; add search bar, visuals. HTMX or CSS
+1. pictures
+2. design
+3. search button
+4. drop down
+
+Organize Folders and create CSS file and html file for each functional button, search bar, etc.
+
+
+
+
+Finshed:
+Steps for hosting applications on EC2 instance
+1. Create an EC2 instance with sufficent memory (for airflow) (Debian OS)
+2. Make sure to have a keypair to connect to the instance and create a .pem file in the working directory
+3. To connect to the instance (SSH) you must;
+         ssh -i my-key-pair.pem my-instance-name@public-ip4-address
+4. Copy your directory into the EC2 (VSCODE)
+5. Install dependencies (Docker and docker-compose)
+6. docker-compose up
